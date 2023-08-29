@@ -196,18 +196,15 @@ if (validation_errors()) {
             $text = 'Diproses';
             $textColor = 'text-primary';
             $display = '';
-
           } elseif ($row['state_of_report'] == 2) {
 
             $text = 'Selesai';
             $textColor = 'text-success';
             $display = '';
-
           } else {
             $text = 'Dibatalkan';
             $textColor = 'text-danger';
             $display = 'd-none';
-
           } ?>
           <div class="pengaduan-card mb-5 mt-3 <?= $display ?>" style="background-color: #ffff;">
             <div class="pengaduan-image">
@@ -229,55 +226,68 @@ if (validation_errors()) {
 
     <!-- start pesan -->
     <div class="container aduan  mb-5" id="aduan">
-      <?= form_open_multipart('home') ?>
-      <h1 class="name">Laporan Aduan <span></span></h1>
-      <div class=" data-user ">
-        <div class="display">
-          <div class="nama">
-            <span class="material-symbols-outlined"> person </span>
-            <input type="text" name="name" id="name" value="<?= set_value('name') ?>" placeholder="Nama" />
-            <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          klick disini untuk melaporkan !
+        </button>
+      </div>
+
+
+
+      <div class="collapse border-0" id="collapseExample">
+        <div class="card card-body">
+          <?= form_open_multipart('home') ?>
+          <h1 class="name">Laporan Aduan <span></span></h1>
+          <div class=" data-user ">
+            <div class="display">
+              <div class="nama">
+                <span class="material-symbols-outlined"> person </span>
+                <input type="text" name="name" id="name" value="<?= set_value('name') ?>" placeholder="Nama" />
+                <?= form_error('name', '<small class="text-danger">', '</small>'); ?>
+
+              </div>
+              <div class="email">
+                <span class="material-symbols-outlined"> call </span>
+                <input type="text" name="phone" value="<?= set_value('phone') ?>" id="email" placeholder="No. Telephone" />
+                <?= form_error('phone', '<small class="text-danger">', '</small>'); ?>
+
+              </div>
+
+            </div>
+            <div class="image">
+              <span class="material-symbols-outlined"> map </span>
+              <input type="text" name="name_location" value="<?= set_value('name_location') ?>" id="email" placeholder="Lokasi" />
+              <?= form_error('name_location', '<small class="text-danger">', '</small>'); ?>
+
+            </div>
+            <div class="image">
+
+              <!-- Custom label with the desired text -->
+              <label for="customFileInput" name="proof" class="custom-file-upload">
+                <span class="material-symbols-outlined"> image </span>
+
+              </label>
+              <!-- Display selected file name -->
+              <span class="file-name m-3 text-danger">Bukti Foto harus diisi</span>
+              <!-- Actual file input element -->
+              <input type="file" id="customFileInput" name="proof" required accept=".jpg, .png, .jpeg">
+              <?= form_error('proof', '<small class="text-danger">', '</small>'); ?>
+
+            </div>
+            <!-- Actual file input element -->
+          </div>
+          <div class="pesan">
+            <span class="material-symbols-outlined"> message </span>
+            <textarea name="message" id="message" cols="150" rows="5" placeholder="Pesan Aduan"><?= set_value('message') ?></textarea>
+            <?= form_error('message', '<small class="text-danger">', '</small>'); ?>
 
           </div>
-          <div class="email">
-            <span class="material-symbols-outlined"> call </span>
-            <input type="text" name="phone" value="<?= set_value('phone') ?>" id="email" placeholder="No. Telephone" />
-            <?= form_error('phone', '<small class="text-danger">', '</small>'); ?>
-
-          </div>
-
+          <button type="submit" onclick="return confirm('apakah anda yakin ingin melaporkan ?')" class="btn btn-success m-2">Ajukan Laporan</button>
+          <button type="reset" class="btn btn-danger m-2">Reset</button>
+          <?= form_close() ?>
         </div>
-        <div class="image">
-          <span class="material-symbols-outlined"> map </span>
-          <input type="text" name="name_location" value="<?= set_value('name_location') ?>" id="email" placeholder="Lokasi" />
-          <?= form_error('name_location', '<small class="text-danger">', '</small>'); ?>
-
-        </div>
-        <div class="image">
-
-          <!-- Custom label with the desired text -->
-          <label for="customFileInput" name="proof" class="custom-file-upload">
-            <span class="material-symbols-outlined"> image </span>
-
-          </label>
-          <!-- Display selected file name -->
-          <span class="file-name m-3 text-danger">Bukti Foto harus diisi</span>
-          <!-- Actual file input element -->
-          <input type="file" id="customFileInput" name="proof" required accept=".jpg, .png, .jpeg">
-          <?= form_error('proof', '<small class="text-danger">', '</small>'); ?>
-
-        </div>
-        <!-- Actual file input element -->
       </div>
-      <div class="pesan">
-        <span class="material-symbols-outlined"> message </span>
-        <textarea name="message" id="message" cols="150" rows="5" placeholder="Pesan Aduan"><?= set_value('message') ?></textarea>
-        <?= form_error('message', '<small class="text-danger">', '</small>'); ?>
 
-      </div>
-      <button type="submit" onclick="return confirm('apakah anda yakin ingin melaporkan ?')" class="btn btn-success m-2">Ajukan Laporan</button>
-      <button type="reset" class="btn btn-danger m-2">Reset</button>
-      <?= form_close() ?>
 
     </div>
 
