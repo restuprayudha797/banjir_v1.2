@@ -6,12 +6,13 @@ class Admin extends CI_Controller
   public function __construct()
   {
     parent::__construct();
+    //* load helper clogin
+    check_login();
     $this->load->library('form_validation');
     $this->load->model('Home_model', 'hm');
 
 
-    //* load helper clogin
-    check_login();
+    
   }
 // tes commit
   public function index()

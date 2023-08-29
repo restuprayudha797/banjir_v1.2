@@ -5,7 +5,8 @@ class Pelaporan extends CI_Controller
 
   public function __construct()
   {
-    parent::__construct();
+    parent::__construct(); //* load helper clogin
+    check_login();
     $this->load->model('Home_model', 'hm');
     $this->load->model('Pelaporan_model', 'pm');
   }
