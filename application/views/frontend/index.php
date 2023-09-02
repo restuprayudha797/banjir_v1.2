@@ -27,6 +27,7 @@ if (validation_errors()) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdLyGlOpib2QhEguSpeuTNOtV4VMcfhVo"></script>
 
 </head>
 
@@ -228,7 +229,7 @@ if (validation_errors()) {
     <div class="container aduan  mb-5" id="aduan">
       <div class="d-grid gap-2">
         <button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          klick disini untuk melaporkan !
+          klik disini untuk melaporkan
         </button>
       </div>
 
@@ -258,7 +259,10 @@ if (validation_errors()) {
               <span class="material-symbols-outlined"> map </span>
               <input type="text" name="name_location" value="<?= set_value('name_location') ?>" id="email" placeholder="Lokasi" />
               <?= form_error('name_location', '<small class="text-danger">', '</small>'); ?>
-
+            </div>
+            <div class="image">
+              <p id="location" class="d-none">Latitude: Loading...<br>Longitude: Loading...</p>
+              <div id="map" style="width: 50%; height: 400px;"></div>
             </div>
             <div class="image">
 
@@ -414,6 +418,53 @@ if (validation_errors()) {
   </script>
 
   <script src="<?= base_url('assets/frontend/js/main.js') ?>"></script>
+  <script>
+    var map;
+    var latitude;
+    var longitude;
+
+
+    // Fungsi untuk mendapatkan koordinat geolokasi
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        document.getElementById("location").innerHTML = "Geolocation tidak didukung oleh browser ini.";
+      }
+    }
+
+    // Fungsi untuk menampilkan koordinat pada halaman
+    function showPosition(position) {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      document.getElementById("location").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+
+      // Tampilkan peta
+      initMap();
+    }
+
+    // Fungsi untuk menginisialisasi peta
+    function initMap() {
+      var myLatLng = {
+        lat: latitude,
+        lng: longitude
+      };
+
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: myLatLng,
+        zoom: 12 // Sesuaikan level zoom sesuai kebutuhan Anda
+      });
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: "Posisi Anda"
+      });
+    }
+
+    // Panggil fungsi getLocation() saat halaman dimuat
+    window.onload = getLocation;
+  </script>
 
 
 </body>
