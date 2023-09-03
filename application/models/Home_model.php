@@ -62,7 +62,7 @@ class Home_model extends CI_Model
         // $this->session->set_flashdata('news_message', ' <div class="alert alert-danger" id="notification" role="alert">
         // Data Berita Gagal Diambah!
         // </div>');
-        redirect('home');
+        redirect('beranda');
       }
     }
 
@@ -75,6 +75,8 @@ class Home_model extends CI_Model
       'name_location' => $this->input->post('name_location', true),
       'proof_image' => $proof,
       'message' => $this->input->post('message', true),
+      'latitude' => $this->input->post('latitude', true),
+      'longitude' => $this->input->post('longitude', true),
       // Tambahkan data yang ingin Anda kirim
     ];
 
@@ -93,14 +95,14 @@ class Home_model extends CI_Model
         'Pengaduan Berhasil di Upload!',
         'success'
       )</script>");
-      redirect('home');
+      redirect('beranda');
     } else {
       $this->session->set_flashdata("home_message", "<script>Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Mohon maaf ! data pengaduan gagal di upload silahkan hubungi admin untuk menyelesaikan masalah ini !',
       })</script>");
-      redirect('home');
+      redirect('beranda');
     }
   }
 }

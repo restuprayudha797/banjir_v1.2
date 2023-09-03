@@ -22,6 +22,8 @@ class Home extends CI_Controller
         $this->form_validation->set_rules('phone', 'No TLP', 'required');
         $this->form_validation->set_rules('name_location', 'Lokasi', 'required');
         $this->form_validation->set_rules('message', 'pesan', 'required');
+        $this->form_validation->set_rules('latitude', 'latitude', 'required');
+        $this->form_validation->set_rules('longitude', 'longitude', 'required');
 
         if ($this->form_validation->run() == false) {
 

@@ -118,6 +118,7 @@ if (validation_errors()) {
               <div class="col-md-12">
                 <div class="col-md-12">
                   <h6><i class="fa fa-map-marker"></i> <b> Lokasi : <?= $row['name_location'] ?></b> </h6>
+                  <a href="https://www.google.com/maps?q=<?= $row['latitude'] ?>,<?= $row['longitude'] ?>" target="_blank">Lihat di Google Maps</a>
                 </div>
               </div>
             </div>
