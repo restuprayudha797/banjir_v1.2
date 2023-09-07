@@ -79,6 +79,9 @@ if (validation_errors()) {
     <div class="container">
       <div class="row">
         <div class="col-md-7 main-title header-text text-light">
+          <img src="<?= base_url('assets/frontend/images/logo/logo-bpbd.png') ?>" width="100" alt="">
+          <img src="<?= base_url('assets/frontend/images/logo/univ-hangtuah.png') ?>" width="118" alt="">
+
           <h1 class="mt-4"><b>SELAMAT DATANG <br> DI WEB APLIKASI PENGADUAN <br> BANJIR
             </b>
           </h1>
