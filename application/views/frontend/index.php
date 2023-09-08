@@ -175,7 +175,7 @@ if (validation_errors()) {
               apps Pelaporan Banjir.</p>
           </div>
           <div class="col-md-6 mt-5 border m-auto">
-            <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" style="width: 100%; height: 360px;">
+            <iframe src="https://www.youtube.com/embed/jrzg44EvBpA" style="width: 100%; height: 360px;">
             </iframe>
           </div>
         </div>
@@ -264,11 +264,17 @@ if (validation_errors()) {
               <?= form_error('name_location', '<small class="text-danger">', '</small>'); ?>
             </div>
             <div class="image">
-              <label for="latitude">Latitude:</label>
-              <input type="text" id="latitude" name="latitude" readonly>
-              <br>
-              <label for="longitude">Longitude:</label>
-              <input type="text" id="longitude" name="longitude" readonly>
+              <div class="row">
+                <div class="col-md-5">
+                  <label for="latitude">Latitude:</label>
+                  <input type="text" id="latitude" name="latitude" readonly>
+                </div>
+                <div class="col-md-5">
+                  <label for="longitude">Longitude:</label>
+                  <input type="text" id="longitude" name="longitude" readonly>
+                </div>
+              </div>
+
 
             </div>
             <div class="image">
