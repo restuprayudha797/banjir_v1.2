@@ -169,7 +169,7 @@ if (validation_errors()) {
       <div class="container p-5">
         <div class="content">
 
-          <h1 class="text-title text-center">Cara Melaporkan Banjir</h1>
+          <h1 class="text-title text-center">Dokumentasi Kegiatan Pengabdian kepada Masyarakat Tim Dosen Universitas Hang Tuah Pekanbaru dengan BPBD Kota Pekanbaru</h1>
           <div class="col-md-5 m-auto">
             <p class="text-center">Berikut ini adalah video tutorial cara melakukan pelaporan dengan menggunakan web
               apps Pelaporan Banjir.</p>
